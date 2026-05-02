@@ -1,0 +1,260 @@
+﻿/* .navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.profile-nav-link {
+  background: rgba(255,255,255,0.15);
+}
+
+.profile-nav-link:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.register-btn {
+  background: white;
+  color: #667eea;
+}
+
+.register-btn:hover {
+  background: #f0f0f0;
+}
+
+.logout-nav-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.logout-nav-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-menu {
+    justify-content: center;
+    gap: 1rem;
+  }
+} */
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap');
+
+.navbar {
+  font-family: 'DM Sans', sans-serif;
+  background: #1a1a18;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  padding: 0 28px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Logo ── */
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  letter-spacing: -0.01em;
+}
+
+.logo-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1D9E75;
+  margin-left: 3px;
+  flex-shrink: 0;
+}
+
+/* ── Menu ── */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Divider ── */
+.nav-divider {
+  display: inline-block;
+  width: 0.5px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+/* ── Avatar pill (profile link) ── */
+.avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px 5px 5px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.avatar-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.avatar-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #1D9E75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #E1F5EE;
+  flex-shrink: 0;
+}
+
+/* ── Sign out button ── */
+.logout-nav-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  margin-left: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.logout-nav-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Register CTA ── */
+.register-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1a1a18 !important;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: opacity 0.15s ease;
+}
+
+.register-btn:hover {
+  opacity: 0.88;
+  background: #ffffff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .navbar { padding: 0 16px; }
+  .nav-link { padding: 6px 8px; font-size: 12px; }
+  .avatar-btn span:last-child { display: none; }
+}
