@@ -63,53 +63,6 @@ router.get('/my-courses', async (req, res) => {
   }
 });
 
-// Enroll in course (POST method)
-router.post('/:courseId', async (req, res) => {
-  try {
-    const { courseId } = req.params;
-    const { studentId } = req.body;
-    
-    console.log('Enroll request - courseId:', courseId, 'studentId:', studentId);
-    
-    if (!studentId) {
-      return res.status(400).json({ message: 'Student ID is required' });
-    }
-    
-    const course = await Course.findById(courseId);
-    if (!course) {
-      return res.status(404).json({ message: 'Course not found' });
-    }
-    
-    const existingEnrollment = await Enrollment.findOne({
-      student: studentId,
-      course: courseId
-    });
-    
-    if (existingEnrollment) {
-      return res.status(400).json({ message: 'Already enrolled in this course' });
-    }
-    
-    const enrollment = await Enrollment.create({
-      student: studentId,
-      course: courseId,
-      progress: 0,
-      completedLessons: []
-    });
-    
-    if (!course.studentsEnrolled) course.studentsEnrolled = [];
-    course.studentsEnrolled.push(studentId);
-    await course.save();
-    
-    const populatedEnrollment = await Enrollment.findById(enrollment._id).populate('course');
-    
-    console.log('Enrollment created:', enrollment._id);
-    res.status(201).json(populatedEnrollment);
-  } catch (error) {
-    console.error('Enrollment error:', error);
-    res.status(500).json({ message: error.message });
-  }
-});
-
 // Get progress for a specific course
 router.get('/progress/:courseId', async (req, res) => {
   try {
@@ -146,8 +99,10 @@ router.get('/progress/:courseId', async (req, res) => {
   }
 });
 
+
 // Mark lesson as complete - FIXED VERSION
 router.post('/complete-lesson', async (req, res) => {
+  console.log("request abhii")
   try {
     const { studentId, courseId, lessonId } = req.body;
     
@@ -239,6 +194,55 @@ router.post('/complete-lesson', async (req, res) => {
       message: error.message,
       stack: error.stack
     });
+  }
+});
+
+
+
+// Enroll in course (POST method)
+router.post('/:courseId', async (req, res) => {
+  try {
+    const { courseId } = req.params;
+    const { studentId } = req.body;
+    
+    console.log('Enroll request - courseId:', courseId, 'studentId:', studentId);
+    
+    if (!studentId) {
+      return res.status(400).json({ message: 'Student ID is required' });
+    }
+    
+    const course = await Course.findById(courseId);
+    if (!course) {
+      return res.status(404).json({ message: 'Course not found' });
+    }
+    
+    const existingEnrollment = await Enrollment.findOne({
+      student: studentId,
+      course: courseId
+    });
+    
+    if (existingEnrollment) {
+      return res.status(400).json({ message: 'Already enrolled in this course' });
+    }
+    
+    const enrollment = await Enrollment.create({
+      student: studentId,
+      course: courseId,
+      progress: 0,
+      completedLessons: []
+    });
+    
+    if (!course.studentsEnrolled) course.studentsEnrolled = [];
+    course.studentsEnrolled.push(studentId);
+    await course.save();
+    
+    const populatedEnrollment = await Enrollment.findById(enrollment._id).populate('course');
+    
+    console.log('Enrollment created:', enrollment._id);
+    res.status(201).json(populatedEnrollment);
+  } catch (error) {
+    console.error('Enrollment error:', error);
+    res.status(500).json({ message: error.message });
   }
 });
 

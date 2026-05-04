@@ -627,6 +627,7 @@ const InstructorDashboard = () => {
     } catch (e) { console.error(e); }
   };
 
+  
   const handleUpdateLesson = async (e) => {
     e.preventDefault();
     try {

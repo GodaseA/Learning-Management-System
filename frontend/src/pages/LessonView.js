@@ -338,7 +338,11 @@ const LessonView = () => {
     setMarkingComplete(true);
     try {
       const { data } = await api.post('/enrollments/complete-lesson', {
-        studentId: user._id, courseId, lessonId
+        studentId: user._id,
+        courseId: courseId,
+        lessonId: lessonId
+        
+        // courseId, lessonId
       });
       if (data.success) {
         setCompletedLessons(prev => [...prev, lessonId]);
